@@ -11,6 +11,7 @@ def main():
     
     print("GPA Roast (3.86):", pyroast.roast_gpa(3.86))
     print("Height Roast (5.0):", pyroast.roast_height(5.0))
+    print("Coffee Roast (6):", pyroast.roast_coffee(6))
 
 
 if __name__ == "__main__":

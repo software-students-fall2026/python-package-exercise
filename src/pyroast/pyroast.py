@@ -24,3 +24,17 @@ def roast_height(height: float) -> str:
         return "Willy Wonka wants you back in the cholocate factory."
     else:
         return "How is that possible?"
+
+def roast_coffee(cups: int) -> str:
+    if cups < 0:
+        return "Who are you trying to fool?"
+    if cups == 0:
+        return "No coffee? You run on pure denial."
+    elif cups <= 2:
+        return "Less than 2 cups? Still on the free trial of adulthood."
+    elif cups <= 4:
+        return "Your coffee needs a coffee."
+    elif cups > 4:
+        return "Your blood has turned into espresso."
+    else:
+        return "Are you kidding me?"
