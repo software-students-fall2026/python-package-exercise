@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyjokelang"
+description = "Translate English into silly joke languages like Pig Latin and Baby Talk, and back again."
+version = "0.1.0"
+authors = [
+  { name = "Jade Leong" },
+  { name = "Risha Chada" },
+  { name = "Seth DeRusha" },
+  { name = "Sanjana Chauhan" },
+  { name = "Yufei Huang" },
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+readme = "README.md"
+keywords = ["pig latin", "baby talk", "translator", "fun", "joke"]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+"Homepage" = "https://github.com/software-students-fall2026/python-package-exercise-project-kitchen"
+"Repository" = "https://github.com/software-students-fall2026/python-package-exercise-project-kitchen.git"
+"Bug Tracker" = "https://github.com/software-students-fall2026/python-package-exercise-project-kitchen/issues"
+
+[project.scripts]
+pyjokelang = "pyjokelang.__main__:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

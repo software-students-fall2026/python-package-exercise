@@ -1,3 +1,11 @@
-# Python Package Exercise
+# pyjokelang
 
-An exercise to create a Python package, build it, test it, distribute it, and use it. See [instructions](./instructions.md) for details.
+Translate English into silly joke languages like Pig Latin and Baby Talk, and back again.
+
+## Setup
+
+From the project root, install [pipenv](https://pipenv.pypa.io/) and then run:
+
+```bash
+pipenv install --dev
+```
