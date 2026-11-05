@@ -10,6 +10,25 @@ class Test:
         actual = pyroast.roast_gpa(3.86)
         assert isinstance(actual, str), f"Expected roast_gpa() to return a string. Instead, it returned {actual}"
         assert len(actual) > 0, f"Expected roast_gpa() not to be empty. Instead, it returned a string with {len(actual)} characters"
+
+    def test_roast_gpa_thresholds(self):
+        '''
+        Verify roast_gpa() across various thresholds
+        '''
+        sample_gpa = [1.0, 2.6, 2.9, 2.0, 3.6, 4.0]
+        for g in sample_gpa:
+            actual = pyroast.roast_gpa(g)
+            assert isinstance(actual, str), f"Expected roast_gpa() to return a string for gpa {g}. Instead, it returned {actual}"
+            assert len(actual) > 0, f"Expected roast_gpa() not to be empty for gpa {g}. Instead, it returned a string with {len(actual)} characters"
+
+    def test_roast_gpa_sleep(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 3.9
+        '''
+        actual = pyroast.roast_gpa(4.0)
+        assert actual == "I bet you've never known sleep before"
+
+    
     # Height roast
     def test_roast_height(self):
         """
