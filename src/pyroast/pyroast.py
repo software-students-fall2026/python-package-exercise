@@ -1,6 +1,6 @@
 def roast_gpa(gpa: float) -> str:
     if isinstance(gpa, bool) or not isinstance(gpa, (int, float)):
-        raise TypeError(f"gpa must be a number, got {type(gpa.__name__)}")
+        raise TypeError(f"gpa must be a number, got {type(gpa).__name__}")
 
     if gpa < 0 or gpa > 4.0:
         raise ValueError(f"gpa must be between 0 and 4.0, got {gpa}")
