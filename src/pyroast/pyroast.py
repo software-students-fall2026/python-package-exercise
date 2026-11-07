@@ -1,10 +1,20 @@
 def roast_gpa(gpa: float) -> str:
+    if isinstance(gpa, bool) or not isinstance(gpa, (int, float)):
+        raise TypeError(f"gpa must be a number, got {type(gpa).__name__}")
+
+    if gpa < 0 or gpa > 4.0:
+        raise ValueError(f"gpa must be between 0 and 4.0, got {gpa}")
+
     if gpa >= 3.9:
         return "I bet you've never known sleep before"
     elif gpa >= 3.5:
         return "I smell wasted potential"
     elif gpa >= 3.0:
         return "Are you even trying? Or is college just a networking event for you?"
+    elif gpa >=2.5:
+        return "At this point, it might be better to give up"
+    elif gpa >=2.0:
+        return "I see you gave up, smartest choice you've ever made"
     else:
         return "Your GPA is lower than my room temperature"
 
