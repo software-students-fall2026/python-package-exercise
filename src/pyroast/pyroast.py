@@ -62,3 +62,32 @@ def roast_sleep(hours: float) -> str:
         return "Eight hours? Who are you, a wellness influencer?"
     else:
         return "You're not well-rested, you're hibernating."
+
+def roast_age(age: int) -> str:
+    """
+    Roast the user based on their age. Takes only a whole number in years.
+    Negative age is acceptable (will be considered unborn).
+    """
+
+    if not isinstance(age, int) or isinstance(age, bool):
+        raise TypeError(f"Age should be a whole number of years, instead got {type(age).__name__}")
+
+    if age > 99:
+        return "Careful sandbag! Every second is a 50/50 gamble!"
+    elif age > 89:
+        return "Have your skin flaps grown mold yet?"
+    elif age > 64:
+        return "Has your family started digging your grave yet?"
+    elif age > 39:
+        return "We should bet on which organ starts giving up first."
+    elif age > 29:
+        return "Your bank account is looking pretty dry and your energy bar looks even drier."
+    elif age > 19:
+        return "How is the job search going? Still nothing?"
+    elif age > 9:
+        return "Keep eating that junk food! More joy now and more health problems later!"
+    elif age > 0:
+        return "You're probably a dirt eater."
+    else:
+        return "Did your mom's womb come with a computer?"
+
