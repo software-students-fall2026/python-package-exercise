@@ -107,5 +107,18 @@ For a complete working example that demonstrates all five package functions in a
 
 ## Team members
 
+- [Robert Fang](https://github.com/rfang1224)
+
+- [James Li](https://github.com/DyingRavioli)
+
+- [Danial Sagimbayev](https://github.com/catw1thtea)
+
+- [Pranay Engineer](https://github.com/PranayEng) 
+
+- [Daniyal Malik](https://github.com/DaniyalMlk) 
+
+
+
+
 ## Configuration
 
