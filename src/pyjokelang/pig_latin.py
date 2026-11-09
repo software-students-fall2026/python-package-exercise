@@ -30,4 +30,4 @@ def english_to_pig_latin(text):
     # PPLEA-WAY
     #ART
     # RTA-WAY
-    
+
