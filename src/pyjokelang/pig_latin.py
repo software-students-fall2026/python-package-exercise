@@ -33,7 +33,7 @@ def english_word_to_pig_latin(text):
 '''
 helper to make the entire sentence piglatin, not just words
 '''
-def english_sentence_to_piglatin(text):
+def english_sentence_to_pig_latin(text):
     translated_words = []
     words = text.lower().split()
     for word in words:
