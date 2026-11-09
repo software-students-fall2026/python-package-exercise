@@ -12,10 +12,6 @@ Use a helper function to reverse capital and lowercase letters.
 Use a helper function to scramble punctuation.
 
 '''
-
-#helper functions
-#
-
 def english_to_pig_latin(text):
     vowels = "aeiou"
     words = text.lower().split()
@@ -29,12 +25,4 @@ def english_to_pig_latin(text):
                 index += 1
             pig_latin_word = word[index:] + word[:index] + "ay"
         translated_words.append(pig_latin_word)
-    
     return " ".join(translated_words)
-
-    #RYTHM 
-    # YTHMR-AY
-    #APPLE
-    # PPLEA-WAY
-    #ART
-    # RTA-WAY
