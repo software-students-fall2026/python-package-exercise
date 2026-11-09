@@ -35,20 +35,10 @@ def english_sentence_to_pig_latin(text):
         translated_words.append(english_word_to_pig_latin(word))
     return " ".join(translated_words)
 
-'''
-This will turn all capital letters into lowercase.
-This will turn all lower case letters into uppercase.
-'''
-
-def reverse_capitalization(text):
-    pass
+def reverse_capitalization():
+    """This will turn all capital letters into lowercase and vice versa."""
 
 
-'''
-This will turn exclamation points into periods. 
-This will turn periods into question marks.
-Disregard proper grammar rules.
-'''
 
-def reverse_punctuation(text):
-    pass
+def reverse_punctuation():
+    """This will turn exclamation points into periods, turn periods into question marks."""
