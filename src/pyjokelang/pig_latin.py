@@ -1,7 +1,17 @@
 '''
 English to pig latin:
-'''
 
+Move the first letter to the end of the word and add -ay. 
+
+Unless the first letter is a vowel, then keep the word unchanged and add -ay.
+
+If the word ends in a vowel add -way instead.
+
+Use a helper function to reverse capital and lowercase letters. 
+
+Use a helper function to scramble punctuation.
+
+'''
 def english_to_pig_latin(text):
     """
     Translate English text into Pig Latin.
