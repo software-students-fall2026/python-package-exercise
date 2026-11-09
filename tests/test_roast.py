@@ -59,10 +59,31 @@ class Test:
 
     def test_roast_gpa_lowest(self):
         '''
-        Verify roast_gpa() returns the expected message for a gpa less than 2.0
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 1.5
         '''
         actual = pyroast.roast_gpa(1.9)
+        assert actual == "Gonna drop out soon?"
+
+    def test_roast_gpa_lowest(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 1.0
+        '''
+        actual = pyroast.roast_gpa(1.1)
+        assert actual == "McDonalds is always hiring"
+
+    def test_roast_gpa_lowest(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 0.5
+        '''
+        actual = pyroast.roast_gpa(0.9)
         assert actual == "Your GPA is lower than my room temperature"
+
+    def test_roast_gpa_lowest(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 0.0
+        '''
+        actual = pyroast.roast_gpa(0.9)
+        assert actual == "A gpa that low actually exists? Behold the 8th wonder of the world!"
     
     # Height roast
     def test_roast_height(self):
