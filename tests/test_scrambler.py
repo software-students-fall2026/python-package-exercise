@@ -178,4 +178,3 @@ class Tests:
             unscramble("hello", key="123")
         with pytest.raises(ValueError):
             unscramble("", key="")
-
