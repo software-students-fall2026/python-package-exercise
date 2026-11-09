@@ -55,6 +55,40 @@ class Test:
         actual = pyroast.roast_height(6.0)
         assert isinstance(actual, str), f"Expected string, got {type(actual)}"
 
+    def test_roast_height_boundaries(self):
+        """
+        Verify values on the edge of each band land in the expected band.
+        """
+        assert pyroast.roast_height(6.7) == "Haha funny"
+        assert pyroast.roast_height(6.71) == pyroast.roast_height(8.0)
+        assert pyroast.roast_height(6.3) == pyroast.roast_height(6.69)
+        assert pyroast.roast_height(6.0) == pyroast.roast_height(6.29)
+        assert pyroast.roast_height(5.8) == pyroast.roast_height(5.99)
+        assert pyroast.roast_height(4.5) == pyroast.roast_height(5.79)
+        assert pyroast.roast_height(1) == pyroast.roast_height(4.49)
+
+    def test_roast_height_rejects_out_of_range(self):
+        """
+        Heights below 1 ft or above 9 ft raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            pyroast.roast_height(0)
+        with pytest.raises(ValueError):
+            pyroast.roast_height(-5.5)
+        with pytest.raises(ValueError):
+            pyroast.roast_height(9.1)
+
+    def test_roast_height_rejects_non_numbers(self):
+        """
+        Strings, None and booleans raise TypeError.
+        """
+        with pytest.raises(TypeError):
+            pyroast.roast_height("six feet")
+        with pytest.raises(TypeError):
+            pyroast.roast_height(None)
+        with pytest.raises(TypeError):
+            pyroast.roast_height(True)
+
     # Coffee roast
     def test_roast_coffee(self):
         """
@@ -80,3 +114,35 @@ class Test:
         """
         actual = pyroast.roast_coffee(6)
         assert actual == "Your blood has turned into espresso."
+
+    def test_roast_coffee_boundaries(self):
+        """
+        Verify each band boundary gives the expected roast.
+        """
+        assert pyroast.roast_coffee(0) == "No coffee? You run on pure denial."
+        assert pyroast.roast_coffee(1) == pyroast.roast_coffee(2)
+        assert pyroast.roast_coffee(3) == pyroast.roast_coffee(4)
+        assert pyroast.roast_coffee(5) == pyroast.roast_coffee(100)
+        assert pyroast.roast_coffee(2) != pyroast.roast_coffee(3)
+
+    def test_roast_coffee_rejects_negative(self):
+        """
+        Negative cup counts raise ValueError.
+        """
+        with pytest.raises(ValueError):
+            pyroast.roast_coffee(-1)
+        with pytest.raises(ValueError):
+            pyroast.roast_coffee(-100)
+
+    def test_roast_coffee_rejects_non_integers(self):
+        """
+        Floats, strings, None and booleans raise TypeError.
+        """
+        with pytest.raises(TypeError):
+            pyroast.roast_coffee(2.5)
+        with pytest.raises(TypeError):
+            pyroast.roast_coffee("three")
+        with pytest.raises(TypeError):
+            pyroast.roast_coffee(None)
+        with pytest.raises(TypeError):
+            pyroast.roast_coffee(False)
