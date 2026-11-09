@@ -16,27 +16,24 @@ Use a helper function to translate full sentences.
 '''
 
 def english_word_to_pig_latin(text):
+    """Translate a single English word into Pig Latin."""
     vowels = "aeiou"
     word = text.lower()
-
     # if the first letter is a vowel, keep that here
     if word[0] in vowels:
         pig_latin_word = word + "way"
-    # if it's not a vowel, then add the first letter to the end and add ay 
+    # if it's not a vowel, then add the first letter to the end and add ay
     else:
         pig_latin_word = word[1:] + word[0] + "ay"
-
     return pig_latin_word
 
 
 
-'''
-helper to make the entire sentence piglatin, not just words
-'''
+
 def english_sentence_to_pig_latin(text):
+    """Translate an entire English sentence into Pig Latin."""
     translated_words = []
     words = text.lower().split()
     for word in words:
         translated_words.append(english_word_to_pig_latin(word))
-
     return " ".join(translated_words)
