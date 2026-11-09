@@ -2,6 +2,8 @@
 
 ## Build and test status
 
+[![build and test](https://github.com/software-students-fall2026/python-package-exercise-team-fast-guys/actions/workflows/build.yml/badge.svg)](https://github.com/software-students-fall2026/python-package-exercise-team-fast-guys/actions/workflows/build.yml)
+
 ## Description
 pyroast is a lighthearted Python package designed to roast users based on their personal statistics. By taking info like GPA, height, sleep duration, age, and coffee intake, the package evaluates each value to return customized, sarcastic commentary.
 
