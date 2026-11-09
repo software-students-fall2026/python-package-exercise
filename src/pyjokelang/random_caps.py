@@ -1,3 +1,4 @@
+"""Utilities for randomly changing letter capitalization."""
 import random
 
 '''
