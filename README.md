@@ -27,6 +27,7 @@ The vowels are a, e, i, o and u. **Y never counts as a vowel.**
 6. **Apostrophes inside a word** count as part of that word.
 7. **Hyphenated words:** translate each part separately.
 8. **Numbers, spaces and punctuation** stay where they are.
+
 | English | Pig Latin | Rule |
 |---|---|---|
 | string | ing-stray | 1 |
