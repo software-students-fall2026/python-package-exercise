@@ -54,6 +54,7 @@ For each translated word:
    - **All caps:** if the whole word is in capitals, keep the whole result in capitals.
    - **Capitalized:** if only the first letter is a capital, make that letter lowercase and capitalize the new first letter of the word. If "qu" moved back, only the `q` becomes a capital.
    - **Lowercase:** keep the whole result in lowercase.
+   
 | Pig Latin | English | What happens |
 |---|---|---|
 | ing-stray | string | `str` moves back in front of `ing` |
