@@ -1,12 +1,13 @@
-"""Tests for the sentence scrambler."""
+"""Tests for the sentence scrambler and unscrambler."""
 
 import pytest
 
 from pyjokelang.scrambler import scramble
+from pyjokelang.scrambler import unscramble
 
 
 class Tests:
-    """Unit tests for scramble()."""
+    """Unit tests for scramble() and unscramble()."""
 
     def test_known_output(self):
         """Scrambling known input with a known key gives the expected output."""
@@ -93,3 +94,87 @@ class Tests:
             scramble("hello", key="")
         with pytest.raises(ValueError):
             scramble("hello", key="123")
+
+    def test_unscramble_known_output(self):
+        """Known scrambled messages are restored with the matching key."""
+        actual = unscramble("Rvb g u!mn bt,oi mt sxeawlwvb")
+        expected = "Hello world, meet me at noon!"
+        assert actual == expected, (
+            f"Expected '{expected}'. Instead, it returned '{actual}'"
+        )
+
+        actual = unscramble("bced", key="b")
+        assert actual == "abcd", (
+            f"Expected 'abcd'. Instead, it returned '{actual}'"
+        )
+
+        actual = unscramble("k")
+        assert actual == "a", (
+            f"Expected 'a'. Instead, it returned '{actual}'"
+        )
+
+        actual = unscramble("hj", key="abcdefghijklmnop")
+        assert actual == "hi", (
+            f"Expected 'hi'. Instead, it returned '{actual}'"
+        )
+
+    def test_unscramble_round_trip(self):
+        """Scrambling and unscrambling restores the original message."""
+        messages = [
+            "Hello, world! 123",
+            "Mixed CASE and don't-stop!",
+            "First line\nSecond line\t123",
+            "你好 🌍",
+        ]
+        for message in messages:
+            actual = unscramble(scramble(message))
+            assert actual == message, (
+                f"Expected '{message}'. Instead, it returned '{actual}'"
+            )
+
+    def test_unscramble_keys(self):
+        """Custom keys work and key formatting is ignored."""
+        message = "Meet me at noon!"
+        scrambled = scramble(message, key="secret")
+
+        actual = unscramble(scrambled, key="secret")
+        assert actual == message, (
+            f"Expected '{message}' with the matching key. Got '{actual}'"
+        )
+
+        actual = unscramble(scrambled, key="SECRET")
+        assert actual == message, "Expected keys to be case-insensitive"
+
+        actual = unscramble(scrambled, key="s1e!c r-e_t")
+        assert actual == message, (
+            "Expected non-letter characters in the key to be ignored"
+        )
+
+    def test_unscramble_edge_inputs(self):
+        """Empty messages and messages without letters are restored."""
+        assert unscramble("") == "", "Expected an empty string"
+
+        message = "123 !?"
+        actual = unscramble(scramble(message))
+        assert actual == message, (
+            f"Expected '{message}'. Instead, it returned '{actual}'"
+        )
+
+        message = "A"
+        actual = unscramble(scramble(message))
+        assert actual == message, "Expected uppercase 'A' to be restored"
+
+    def test_unscramble_invalid_inputs(self):
+        """Bad text or key types and keys without letters raise errors."""
+        with pytest.raises(TypeError):
+            unscramble(123)
+        with pytest.raises(TypeError):
+            unscramble(None)
+        with pytest.raises(TypeError):
+            unscramble("hello", key=42)
+        with pytest.raises(ValueError):
+            unscramble("hello", key="")
+        with pytest.raises(ValueError):
+            unscramble("hello", key="123")
+        with pytest.raises(ValueError):
+            unscramble("", key="")
