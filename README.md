@@ -55,7 +55,7 @@ Returns: str — A roast assessing caffeine dependence.
 
 #### Evaluates the user's age in years and returns an age roast.
 
-Parameters: age (int): Age in years. Can be a negative number.
+Parameters: age (int): Age in years. Can be a negative number (counts as "unborn").
 
 Returns: str — A roast string based on the user's age bracket.
 
@@ -125,9 +125,3 @@ For a complete working example that demonstrates all five package functions in a
 - [Pranay Engineer](https://github.com/PranayEng) 
 
 - [Daniyal Malik](https://github.com/DaniyalMlk) 
-
-
-
-
-## Configuration
-
