@@ -55,15 +55,13 @@ Returns: str — A roast assessing caffeine dependence.
 
 #### Evaluates the user's age in years and returns an age roast.
 
-Parameters: age (int | float): Age in years. Must be a non-negative number.
+Parameters: age (int): Age in years. Can be a negative number.
 
 Returns: str — A roast string based on the user's age bracket.
 
 Raises:
 
 TypeError: If age is non-numeric or a boolean.
-
-ValueError: If age is less than 0.
 
 ## Program Examples
 
@@ -104,6 +102,17 @@ For a complete working example that demonstrates all five package functions in a
 
 
 ## Development setup
+
+### Setting Up Virtual Environment and Dependencies
+1. Install `pipenv` if you have not yet using `pip install --user pipenv`.
+2. Set up virtual environment using `pipenv shell`.
+3. Using `pipenv install`, install project dependencies, including `pytest` for testing.
+
+### Adding and Running Tests
+1. Add a new Python file in the `tests` directory for your added method/unit.
+    1. Import `pytest` and `pyroast`.
+    2. Create a class using `Test` as a prefix and enter methods within it with `test_` as a prefix.
+2. Run `pytest` to run tests in the `tests` directory.
 
 ## Team members
 
