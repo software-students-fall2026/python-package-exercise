@@ -76,9 +76,8 @@ def scramble(text, key=DEFAULT_KEY):
     shifted = _shift_letters(text, shifts, 1)
     return "".join(shifted[i] for i in _rail_fence_order(len(shifted)))
 
-#Sentence unscrambler: turns gibberish that is a result of the sentence scrambler into readable English text.
-#This is done via using the same map that sentence scrambler uses. 
-#This does not magically unscramble random text that was not created using the scrambler above.
+# Restores text produced by scramble() using the same key.
+# Does not unscramble arbitrary gibberish.
 
 def unscramble(text, key=DEFAULT_KEY):
     """
