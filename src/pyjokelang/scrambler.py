@@ -81,3 +81,30 @@ Sentence unscrambler: turns gibberish that is a result of the sentence scrambler
 This is done via using the same map that sentence scrambler uses. 
 This does not magically unscramble random text that was not created using the scrambler above.
 """
+
+def unscramble(text, key=DEFAULT_KEY):
+    """
+    Restore text scrambled with the same key.
+
+    Args:
+        text: The scrambled message.
+        key: The key originally used to scramble the message.
+
+    Returns:
+        The restored message, the same length as the scrambled text.
+
+    Raises:
+        TypeError: If text or key is not a string.
+        ValueError: If key contains no letters.
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    shifts = _key_shifts(key)
+
+    restored = [""] * len(text)
+    for character, original_position in zip(
+        text, _rail_fence_order(len(text))
+    ):
+        restored[original_position] = character
+
+    return _shift_letters("".join(restored), shifts, -1)
