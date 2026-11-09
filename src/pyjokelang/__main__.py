@@ -6,7 +6,7 @@ Run it with either:
     python -m pyjokelang <command> [options] TEXT
 
 Commands:
-    to-pig-latin      English -> Pig Latin        pig_latin.english_to_pig_latin
+    to-pig-latin      English -> Pig Latin        pig_latin.english_sentence_to_pig_latin
     from-pig-latin    Pig Latin -> English        pig_latin.pig_latin_to_english
     baby-talk         English -> Baby Talk        baby_talk.english_to_baby_talk
     scramble          text -> gibberish           scrambler.scramble
@@ -78,7 +78,7 @@ def _add_to_pig_latin(subparsers):
     )
     _add_text_argument(parser)
     parser.set_defaults(
-        func=lambda args: _call("pig_latin", "english_to_pig_latin", _text(args))
+        func=lambda args: _call("pig_latin", "english_sentence_to_pig_latin", _text(args))
     )
 
 
