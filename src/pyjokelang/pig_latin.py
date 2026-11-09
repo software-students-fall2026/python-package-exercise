@@ -17,9 +17,10 @@ def english_to_pig_latin(text):
         translated_words.append(pig_latin_word)
     return " ".join(translated_words)
 
-    #RYTHM 
+    #RYTHM
     # YTHMR-AY
     #APPLE
     # PPLEA-WAY
     #ART
     # RTA-WAY
+    
