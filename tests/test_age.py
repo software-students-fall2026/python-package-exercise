@@ -4,11 +4,24 @@ from pyroast import pyroast
 class TestAgeRoast:
     def test_roast_age_different(self):
         """
-        Verify roast_age returns a string for different age inputs.
+        Verify roast_age returns a different string for different age inputs.
         """
         sample_ages = [-23, 1, 10, 20, 30, 40, 65, 90, 129000]
         sample_results = set(pyroast.roast_age(a) for a in sample_ages)
         assert len(sample_ages) == len(sample_results), f"Expected {len(sample_ages)} responses. Got {len(sample_results)} responses instead."
+
+    def test_roast_age_correct(self):
+        """
+        Verify roast_age returns correct string for a specific age.
+        """
+        resultOne = pyroast.roast_age(101)
+        assert resultOne == "Careful sandbag! Every second is a 50/50 gamble!"
+        resultTwo = pyroast.roast_age(32)
+        assert resultTwo == "Your bank account is looking pretty dry and your energy bar looks even drier."
+        resultThree = pyroast.roast_age(-2)
+        assert resultThree == "Did your mom's womb come with a computer?"
+        resultFour = pyroast.roast_age(9)
+        assert resultFour == "You're probably a dirt eater."
 
     def test_roast_age_non_ints(self):
         """
@@ -29,3 +42,4 @@ class TestAgeRoast:
         """
         result = pyroast.roast_age(32)
         assert isinstance(result, str), f"Expected roast_age() to return a string. Instead got {type(result).__name__}"
+

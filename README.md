@@ -116,6 +116,8 @@ For a complete working example that demonstrates all five package functions in a
     2. Create a class using `Test` as a prefix and enter methods within it with `test_` as a prefix.
 2. Run `pytest` to run tests in the `tests` directory.
 
+Pull requests will build and test with Github Actions.
+
 ## Team members
 
 - [Robert Fang](https://github.com/rfang1224)
@@ -127,6 +129,4 @@ For a complete working example that demonstrates all five package functions in a
 - [Pranay Engineer](https://github.com/PranayEng) 
 
 - [Daniyal Malik](https://github.com/DaniyalMlk) 
-
-## Configuration
 
