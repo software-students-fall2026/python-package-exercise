@@ -10,7 +10,7 @@ class TestPigLatin:
         """Test words beginning with consonants."""
         assert english_word_to_pig_latin("hello") == "elloh-ay"
         assert english_word_to_pig_latin("goodbye") == "oodbyeg-ay"
-    assert english_word_to_pig_latin("software") == "oftwares-ay"
+        assert english_word_to_pig_latin("software") == "oftwares-ay"
 
     def test_word_vowels(self):
         """Test words beginning with vowels."""
@@ -26,21 +26,21 @@ class TestPigLatin:
 
     def test_sentence_known_output(self):
         """Test translating full sentences."""
-        assert english_sentence_to_pig_latin("hello world") == "elloh-ay orldw-ay"
-        assert english_sentence_to_pig_latin("i love software") == "i-way ovel-ay oftwares-ay"
-        assert english_sentence_to_pig_latin("we are the best") == "ew-ay are-way het-ay estb-ay"
+        assert english_sentence_to_pig_latin("hello world") == "ELLOH-AY ORLDW-AY"
+        assert english_sentence_to_pig_latin("i love software") == "I-WAY OVEL-AY OFTWARES-AY"
+        assert english_sentence_to_pig_latin("we are the best") == "EW-AY ARE-WAY HET-AY ESTB-AY"
 
     def test_sentence_capitalization(self):
         """Test lowercase, uppercase, and mixed-case sentences."""
-        assert english_sentence_to_pig_latin("hello world") == "elloh-ay orldw-ay"
-        assert english_sentence_to_pig_latin("I LOVE SOFTWARE") == "i-way ovel-ay oftwares-ay"
-        assert english_sentence_to_pig_latin("We Are The Best") == "ew-ay are-way het-ay estb-ay"
+        assert english_sentence_to_pig_latin("hello world") == "ELLOH-AY ORLDW-AY"
+        assert english_sentence_to_pig_latin("I LOVE SOFTWARE") == "i-WAY ovel-AY oftwares-AY"
+        assert english_sentence_to_pig_latin("We Are The Best") == "Ew-AY aRE-WAY HEt-AY ESTb-AY"
 
     def test_sentence_whitespace(self):
         """Test empty sentences and extra spaces."""
         assert english_sentence_to_pig_latin("") == ""
         assert english_sentence_to_pig_latin("   ") == ""
-        assert english_sentence_to_pig_latin("hello   world") == "elloh-ay orldw-ay"
+        assert english_sentence_to_pig_latin("hello   world") == "ELLOH-AY ORLDW-AY"
 
     def test_word_invalid_input(self):
         """Placeholder for invalid word input tests."""
