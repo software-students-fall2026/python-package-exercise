@@ -60,13 +60,15 @@ def reverse_capitalization(text):
 
 def pig_latin_word_to_english(text):
     """Translate a single Pig Latin word back into English."""
-    word = text.lower()
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    word = text
 
     # if it ends in "-way", the word started with a vowel, so just remove the "-way"
-    if word.endswith("-way") and len(word) > 4:
+    if word.lower().endswith("-way") and len(word) > 4:
         return word[:-4]
     # otherwise remove the "-ay" and move the last letter back to the front
-    if word.endswith("-ay") and len(word) > 3:
+    if word.lower().endswith("-ay") and len(word) > 3:
         stem = word[:-3]
         return stem[-1] + stem[:-1]
     # anything else isn't Pig Latin, so leave it unchanged
@@ -75,8 +77,13 @@ def pig_latin_word_to_english(text):
 
 def pig_latin_sentence_to_english(text):
     """Translate a full Pig Latin sentence back into English."""
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    # undo the sentence translator's helpers first
+    sentence = reverse_capitalization(text)
+    sentence = restore_punctuation(sentence)
     translated_words = []
-    words = text.lower().split()
+    words = sentence.split()
     for word in words:
         translated_words.append(pig_latin_word_to_english(word)) #call helper
 
@@ -95,3 +102,18 @@ def reverse_punctuation(text):
         else:
             reversed_punctuation_text += character
     return reversed_punctuation_text
+
+
+def restore_punctuation(text):
+    """Undo reverse_punctuation(): turn . back into !, ? back into . and ! back into ?."""
+    restored_punctuation_text = ""
+    for character in text:
+        if character == ".":
+            restored_punctuation_text += "!"
+        elif character == "?":
+            restored_punctuation_text += "."
+        elif character == "!":
+            restored_punctuation_text += "?"
+        else:
+            restored_punctuation_text += character
+    return restored_punctuation_text
