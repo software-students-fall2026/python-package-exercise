@@ -17,6 +17,8 @@ KNOWN ISSUE: For words with W, the pig latin to english doesn't work
 
 (ex hello world -> ellohay orldway -> hello orld). 
 
+PROPOSED SOLUTION: Add dashes so we know where to split
+
 '''
 
 def english_word_to_pig_latin(text):
@@ -50,15 +52,15 @@ def reverse_punctuation():
 
 def pig_latin_word_to_english(text):
     """Translate a single Pig Latin word back into English."""
-    vowels = "aeiou"
+    
     word = text.lower()
 
-    # if it starts with a vowel and ends in "way", just remove the "way"
-    if word[0] in vowels and word.endswith("way") and len(word) > 3:
-        return word[:-3]
-    # otherwise remove the "ay" and move the last letter back to the front
-    if word.endswith("ay") and len(word) > 2:
-        stem = word[:-2]
+    # if it ends in "-way", the word started with a vowel, so just remove the "-way"
+    if word.endswith("-way") and len(word) > 4:
+        return word[:-4]
+    # otherwise remove the "-ay" and move the last letter back to the front
+    if word.endswith("-ay") and len(word) > 3:
+        stem = word[:-3]
         return stem[-1] + stem[:-1]
     # anything else isn't Pig Latin, so leave it unchanged
     return word
