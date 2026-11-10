@@ -87,29 +87,36 @@ class Test:
     
     # Height roast
     def test_roast_height(self):
-        """
-        Verify roast_height() returns a non-empty string.
-        """
+        """Verify roast_height() returns a non-empty string."""
         actual = pyroast.roast_height(6.0)
-        assert isinstance(actual, str), f"Expected roast_height() to return a string. Instead, it returned {actual}"
-        assert (len(actual) > 0), f"Expected roast_height() not to be empty. Instead, it returned a string with {len(actual)} characters"
+        assert isinstance(actual, str), f"Expected string, got {type(actual)}"
+        assert len(actual) > 0, "Expected non-empty string"
 
     def test_roast_height_thresholds(self):
-        """
-        Verify roast_height() across different height thresholds.
-        """
+        """Verify roast_height() across different height thresholds."""
         sample_heights = [7.0, 6.7, 6.4, 6.1, 5.9, 5.0, 3.0]
         for h in sample_heights:
             actual = pyroast.roast_height(h)
             assert isinstance(actual, str), f"Expected string for height {h}, got {type(actual)}"
-            assert (len(actual) > 0), f"Expected non-empty string for height {h}, got empty string"
+            assert len(actual) > 0, f"Expected non-empty string for height {h}"
 
-    def test_roast_height_type(self):
-        """
-        Verify return type is a string.
-        """
-        actual = pyroast.roast_height(6.0)
-        assert isinstance(actual, str), f"Expected string, got {type(actual)}"
+    def test_roast_height_exact_messages(self):
+        """Verify roast_height returns exact strings for specific height bands."""
+        assert pyroast.roast_height(6.7) == "Haha funny"
+        assert pyroast.roast_height(7.0) == "You might as well just be a tree!"
+        assert pyroast.roast_height(4.0) == "How is that possible?"
+
+    def test_roast_height_boundaries(self):
+        """Values on the edge of height thresholds fall into the expected band."""
+        assert pyroast.roast_height(6.3) == pyroast.roast_height(6.6)
+        assert pyroast.roast_height(6.0) == pyroast.roast_height(6.29)
+        assert pyroast.roast_height(5.8) == pyroast.roast_height(5.99)
+        assert pyroast.roast_height(4.5) == pyroast.roast_height(5.79)
+
+    def test_roast_height_accepts_int_and_float(self):
+        """Ints and floats in the same band return identical roasts."""
+        assert pyroast.roast_height(6) == pyroast.roast_height(6.0)
+        assert pyroast.roast_height(7) == pyroast.roast_height(7.0)
 
     # Coffee roast
     def test_roast_coffee(self):

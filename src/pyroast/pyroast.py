@@ -94,8 +94,12 @@ def roast_age(age: int) -> str:
         return "Has your family started digging your grave yet?"
     elif age > 39:
         return "We should bet on which organ starts giving up first."
-    elif age > 29:
+    elif age > 31:
         return "Your bank account is looking pretty dry and your energy bar looks even drier."
+    elif age > 27:
+        return "Everyone else already has kids, a car, and a house... what are you still doing in your mom's basement?"
+    elif age > 24:
+        return "Quarter-life crisis mode: fully engaged."
     elif age > 19:
         return "How is the job search going? Still nothing?"
     elif age > 9:
