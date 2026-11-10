@@ -29,6 +29,62 @@ class Test:
         assert actual == "I bet you've never known sleep before"
 
     
+    def test_roast_gpa_smell(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 3.5
+        '''
+        actual = pyroast.roast_gpa(3.6)
+        assert actual == "I smell wasted potential"
+
+    def test_roast_gpa_network(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 3.0
+        '''
+        actual = pyroast.roast_gpa(3.1)
+        assert actual == "Are you even trying? Or is college just a networking event for you?"
+
+    def test_roast_gpa_quit(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 2.5
+        '''
+        actual = pyroast.roast_gpa(2.6)
+        assert actual == "At this point, it might be better to give up"
+
+    def test_roast_gpa_choice(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 2.0
+        '''
+        actual = pyroast.roast_gpa(2.1)
+        assert actual == "I see you gave up, smartest choice you've ever made"
+
+    def test_roast_gpa_drop(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 1.5
+        '''
+        actual = pyroast.roast_gpa(1.9)
+        assert actual == "Gonna drop out soon?"
+
+    def test_roast_gpa_low(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 1.0
+        '''
+        actual = pyroast.roast_gpa(1.1)
+        assert actual == "McDonalds is always hiring"
+
+    def test_roast_gpa_lower(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 0.5
+        '''
+        actual = pyroast.roast_gpa(0.9)
+        assert actual == "Your GPA is lower than my room temperature"
+
+    def test_roast_gpa_lowest(self):
+        '''
+        Verify roast_gpa() returns the expected message for a gpa higher than or equal to 0.0
+        '''
+        actual = pyroast.roast_gpa(0.0)
+        assert actual == "A gpa that low actually exists? Behold the 8th wonder of the world!"
+    
     # Height roast
     def test_roast_height(self):
         """Verify roast_height() returns a non-empty string."""

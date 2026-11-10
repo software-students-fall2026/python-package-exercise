@@ -15,7 +15,7 @@ pyroast is a lighthearted Python package designed to roast users based on their 
 
 ## Usage
 
-### Roast_Gpa
+### roast_gpa
 
 #### Evaluates a student's Grade Point Average (GPA) and returns a customized roast.
 
@@ -23,7 +23,7 @@ Parameters: gpa (float | int): The GPA score (e.g., 3.86).
 
 Returns: str — A roast string based on the GPA.
 
-### Roast_Height
+### roast_height
 
 #### Generates a roast based on height measured in feet.
 
@@ -31,7 +31,7 @@ Parameters: height (float | int): Height in feet (e.g., 6.0, 5.8).
 
 Returns: str — A roast string evaluating the input height.
 
-### Roast_Sleep
+### roast_sleep
 
 #### Roasts the user based on how many hours of sleep they got last night.
 
@@ -45,7 +45,7 @@ TypeError: If hours is non-numeric or a boolean.
 
 ValueError: If hours is less than 0 or greater than 24.
 
-### Roast_Coffee
+### roast_coffee
 
 #### Evaluates daily caffeine intake and returns a roast based on the number of coffee cups consumed.
 
@@ -53,7 +53,7 @@ Parameters: cups (int | float): Number of cups of coffee drank today.
 
 Returns: str — A roast assessing caffeine dependence.
 
-### Roast_Age
+### roast_age
 
 #### Evaluates the user's age in years and returns an age roast.
 
@@ -127,3 +127,6 @@ For a complete working example that demonstrates all five package functions in a
 - [Pranay Engineer](https://github.com/PranayEng) 
 
 - [Daniyal Malik](https://github.com/DaniyalMlk) 
+
+## Configuration
+

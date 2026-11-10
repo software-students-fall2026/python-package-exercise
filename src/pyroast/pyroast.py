@@ -15,8 +15,14 @@ def roast_gpa(gpa: float) -> str:
         return "At this point, it might be better to give up"
     elif gpa >=2.0:
         return "I see you gave up, smartest choice you've ever made"
-    else:
+    elif gpa >= 1.5:
+        return "Gonna drop out soon?"
+    elif gpa >= 1.0:
+        return "McDonalds is always hiring"
+    elif gpa >= 0.5:
         return "Your GPA is lower than my room temperature"
+    elif gpa >= 0.0:
+        return "A gpa that low actually exists? Behold the 8th wonder of the world!"
 
 
 def roast_height(height: float) -> str:
@@ -46,8 +52,6 @@ def roast_coffee(cups: int) -> str:
         return "Your coffee needs a coffee."
     elif cups > 4:
         return "Your blood has turned into espresso."
-    else:
-        return "Are you kidding me?"
       
 def roast_sleep(hours: float) -> str:
     """Roast the user based on how many hours they slept last night.
