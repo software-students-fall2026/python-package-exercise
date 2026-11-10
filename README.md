@@ -117,3 +117,10 @@ pyjokelang unscramble 'F agehe vbh!gx n' --key tacos
 ```
 
 See [`examples/example.py`](./examples/example.py) for a complete program.
+
+## Team Members
+- [Jade Leong](https://github.com/jade-leong)
+- [Risha Chada](https://github.com/rishachada)
+- [Sanjana Chauhan](https://github.com/schauhans)
+- [Seth DeRusha](https://github.com/sethderusha)
+- [Yufei Huang](https://github.com/yufeiihuang)
