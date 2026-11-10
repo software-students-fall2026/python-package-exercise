@@ -11,32 +11,34 @@ Use a helper function to reverse capital and lowercase letters.
 
 Use a helper function to scramble punctuation.
 
-'''
-def english_to_pig_latin(text):
-    """
-    Translate English text into Pig Latin.
+Use a helper function to translate full sentences.
 
-    Words starting with a vowel get "way" added to the end. Otherwise the
-    leading consonants move to the end of the word, followed by "ay".
-    The output is all lowercase.
-    """
+'''
+
+def english_word_to_pig_latin(text):
+    """Translate a single English word into Pig Latin."""
     vowels = "aeiou"
-    words = text.lower().split()
+    word = text.lower()
+    # if the first letter is a vowel, keep that here
+    if word[0] in vowels:
+        pig_latin_word = word + "way"
+    # if it's not a vowel, then add the first letter to the end and add ay
+    else:
+        pig_latin_word = word[1:] + word[0] + "ay"
+    return pig_latin_word
+
+def english_sentence_to_pig_latin(text):
+    """Translate an entire English sentence into Pig Latin."""
     translated_words = []
+    words = text.lower().split()
     for word in words:
-        if word[0] in vowels:
-            pig_latin_word = word + "way"
-        else:
-            index = 0
-            while index < len(word) and word[index] not in vowels:
-                index += 1
-            pig_latin_word = word[index:] + word[:index] + "ay"
-        translated_words.append(pig_latin_word)
+        translated_words.append(english_word_to_pig_latin(word))
     return " ".join(translated_words)
 
-    #RYTHM
-    # YTHMR-AY
-    #APPLE
-    # PPLEA-WAY
-    #ART
-    # RTA-WAY
+def reverse_capitalization():
+    """This will turn all capital letters into lowercase and vice versa."""
+
+
+
+def reverse_punctuation():
+    """This will turn exclamation points into periods, turn periods into question marks."""
