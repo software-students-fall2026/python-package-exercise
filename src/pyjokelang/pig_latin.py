@@ -52,7 +52,6 @@ def reverse_punctuation():
 
 def pig_latin_word_to_english(text):
     """Translate a single Pig Latin word back into English."""
-    
     word = text.lower()
 
     # if it ends in "-way", the word started with a vowel, so just remove the "-way"
