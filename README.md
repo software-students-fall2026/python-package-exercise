@@ -1,5 +1,7 @@
 # pyjokelang
 
+[![Build and test](https://github.com/software-students-fall2026/python-package-exercise-project-kitchen/actions/workflows/build.yml/badge.svg)](https://github.com/software-students-fall2026/python-package-exercise-project-kitchen/actions/workflows/build.yml)
+
 Translate English into silly joke languages like Pig Latin and Baby Talk, and back again. Also translate any language into a random text of the same length, and back again. 
 
 ## PyPI Package Page
