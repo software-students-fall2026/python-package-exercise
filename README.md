@@ -2,6 +2,9 @@
 
 Translate English into silly joke languages like Pig Latin and Baby Talk, and back again. Also translate any language into a random text of the same length, and back again. 
 
+## PyPI Package Page
+[Link to package page](https://pypi.org/project/pyjokelang/0.1.0/)
+
 ## Setup
 
 From the project root, install [pipenv](https://pipenv.pypa.io/) and then run:
@@ -9,7 +12,7 @@ From the project root, install [pipenv](https://pipenv.pypa.io/) and then run:
 ```bash
 pipenv install --dev
 ```
-## Pig Latin rules
+## Pig Latin Rules
  
 > Confirm with Jade in order to ensure our methods match each other and follow the same rules
  
@@ -52,7 +55,7 @@ For each translated word:
 | I-ay | I | a single-letter word keeps its capital |
 | Iet-quay | Quiet | `I` becomes lowercase and only `q` becomes a capital |
 
-## Scramble and unscramble
+## Scramble and Unscramble
 
 `scramble` turns any text into unreadable gibberish, and `unscramble` turns it back. Share the scrambled text with a friend, and they can unscramble it on their own machine. Add a secret `key` and only someone who knows the key can read it.
 
