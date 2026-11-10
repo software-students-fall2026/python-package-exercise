@@ -127,6 +127,3 @@ For a complete working example that demonstrates all five package functions in a
 - [Pranay Engineer](https://github.com/PranayEng) 
 
 - [Daniyal Malik](https://github.com/DaniyalMlk) 
-
-## Configuration
-
