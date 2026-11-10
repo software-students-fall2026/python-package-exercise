@@ -7,7 +7,7 @@ Run it with either:
 
 Commands:
     to-pig-latin      English -> Pig Latin        pig_latin.english_sentence_to_pig_latin
-    from-pig-latin    Pig Latin -> English        pig_latin.pig_latin_to_english
+    from-pig-latin    Pig Latin -> English        pig_latin.pig_latin_sentence_to_english
     baby-talk         English -> Baby Talk        baby_talk.babytalk
     scramble          text -> gibberish           scrambler.scramble
     unscramble        gibberish -> text           scrambler.unscramble
@@ -92,7 +92,7 @@ def _add_from_pig_latin(subparsers):
     )
     _add_text_argument(parser)
     parser.set_defaults(
-        func=lambda args: _call("pig_latin", "pig_latin_to_english", _text(args))
+        func=lambda args: _call("pig_latin", "pig_latin_sentence_to_english", _text(args))
     )
 
 
