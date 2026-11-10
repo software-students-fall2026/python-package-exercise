@@ -143,3 +143,29 @@ class Test:
         """
         actual = pyroast.roast_coffee(6)
         assert actual == "Your blood has turned into espresso."
+
+    def test_roast_coffee_negative(self):
+        """Verify negative coffee intake returns the expected roast."""
+        actual = pyroast.roast_coffee(-1)
+        assert actual == "Who are you trying to fool?"
+
+    def test_roast_coffee_zero(self):
+        """Verify zero coffee returns the expected roast."""
+        actual = pyroast.roast_coffee(0)
+        assert actual == "No coffee? You run on pure denial."
+
+    def test_roast_coffee_two_cup_boundary(self):
+        """Verify the roast changes above two cups."""
+        actual = pyroast.roast_coffee(2)
+        assert actual == "Less than 2 cups? Still on the free trial of adulthood."
+
+        actual = pyroast.roast_coffee(2.01)
+        assert actual == "Your coffee needs a coffee."
+
+    def test_roast_coffee_four_cup_boundary(self):
+        """Verify the roast changes above four cups."""
+        actual = pyroast.roast_coffee(4)
+        assert actual == "Your coffee needs a coffee."
+
+        actual = pyroast.roast_coffee(4.01)
+        assert actual == "Your blood has turned into espresso."
