@@ -8,9 +8,10 @@ Run it with either:
 Commands:
     to-pig-latin      English -> Pig Latin        pig_latin.english_sentence_to_pig_latin
     from-pig-latin    Pig Latin -> English        pig_latin.pig_latin_to_english
-    baby-talk         English -> Baby Talk        baby_talk.english_to_baby_talk
+    baby-talk         English -> Baby Talk        baby_talk.babytalk
     scramble          text -> gibberish           scrambler.scramble
     unscramble        gibberish -> text           scrambler.unscramble
+    random-caps       text -> rAnDoM cApS         random_caps.random_caps
 
 Functions are looked up by name when a command runs, so a command whose
 function hasn't been written yet prints a friendly error instead of
@@ -104,7 +105,7 @@ def _add_baby_talk(subparsers):
     )
     _add_text_argument(parser)
     parser.set_defaults(
-        func=lambda args: _call("baby_talk", "english_to_baby_talk", _text(args))
+        func=lambda args: _call("baby_talk", "babytalk", _text(args))
     )
 
 
@@ -136,6 +137,20 @@ def _add_unscramble(subparsers):
     )
 
 
+def _add_random_caps(subparsers):
+    """Register the 'random-caps' command."""
+    parser = subparsers.add_parser(
+        "random-caps",
+        help="randomly capitalize each letter",
+        description="Randomly uppercase or lowercase each letter. Spaces, numbers, "
+        "and punctuation stay unchanged.",
+    )
+    _add_text_argument(parser)
+    parser.set_defaults(
+        func=lambda args: _call("random_caps", "random_caps", _text(args))
+    )
+
+
 def _build_parser():
     """Create the argument parser with every command registered."""
     parser = argparse.ArgumentParser(
@@ -148,6 +163,7 @@ def _build_parser():
     _add_baby_talk(subparsers)
     _add_scramble(subparsers)
     _add_unscramble(subparsers)
+    _add_random_caps(subparsers)
     return parser
 
 

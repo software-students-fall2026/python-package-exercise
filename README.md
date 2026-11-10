@@ -27,6 +27,7 @@ The vowels are a, e, i, o and u. **Y never counts as a vowel.**
 6. **Apostrophes inside a word** count as part of that word.
 7. **Hyphenated words:** translate each part separately.
 8. **Numbers, spaces and punctuation** stay where they are.
+
 | English | Pig Latin | Rule |
 |---|---|---|
 | string | ing-stray | 1 |
@@ -53,6 +54,7 @@ For each translated word:
    - **All caps:** if the whole word is in capitals, keep the whole result in capitals.
    - **Capitalized:** if only the first letter is a capital, make that letter lowercase and capitalize the new first letter of the word. If "qu" moved back, only the `q` becomes a capital.
    - **Lowercase:** keep the whole result in lowercase.
+   
 | Pig Latin | English | What happens |
 |---|---|---|
 | ing-stray | string | `str` moves back in front of `ing` |
