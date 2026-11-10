@@ -13,7 +13,9 @@ Use a helper function to scramble punctuation.
 
 Use a helper function to translate full sentences.
 
-KNOWN ISSUE: Words with W, the pig latin to english doesn't work (ex hello world -> ellohay orldway -> hello orld). 
+KNOWN ISSUE: For words with W, the pig latin to english doesn't work 
+
+(ex hello world -> ellohay orldway -> hello orld). 
 
 '''
 
@@ -47,7 +49,7 @@ def reverse_punctuation():
 
 
 def pig_latin_word_to_english(text):
-    #Helper function to translate a single pig latin word back into english
+    """Translate a single Pig Latin word back into English."""
     vowels = "aeiou"
     word = text.lower()
 
@@ -63,7 +65,7 @@ def pig_latin_word_to_english(text):
 
 
 def pig_latin_sentence_to_english(text):
-    #Main translator function for sentences
+    """Translate a full Pig Latin sentence back into English."""
     translated_words = []
     words = text.lower().split()
     for word in words:
