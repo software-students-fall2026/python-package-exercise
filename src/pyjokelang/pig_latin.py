@@ -21,10 +21,10 @@ def english_word_to_pig_latin(text):
     word = text.lower()
     # if the first letter is a vowel, keep that here
     if word[0] in vowels:
-        pig_latin_word = word + "way"
+        pig_latin_word = word + "-way"
     # if it's not a vowel, then add the first letter to the end and add ay
     else:
-        pig_latin_word = word[1:] + word[0] + "ay"
+        pig_latin_word = word[1:] + word[0] + "-ay"
     return pig_latin_word
 
 def english_sentence_to_pig_latin(text):
