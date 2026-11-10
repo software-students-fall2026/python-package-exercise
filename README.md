@@ -51,3 +51,69 @@ For each translated word:
 | Apple-ay | Apple | the first letter doesn't change, so it stays a capital |
 | I-ay | I | a single-letter word keeps its capital |
 | Iet-quay | Quiet | `I` becomes lowercase and only `q` becomes a capital |
+
+## Scramble and unscramble
+
+`scramble` turns any text into unreadable gibberish, and `unscramble` turns it back. Share the scrambled text with a friend, and they can unscramble it on their own machine. Add a secret `key` and only someone who knows the key can read it.
+
+```python
+from pyjokelang import scramble, unscramble
+
+scramble("Hello world, meet me at noon!")
+# 'Rvb g u!mn bt,oi mt sxeawlwvb'
+
+unscramble("Rvb g u!mn bt,oi mt sxeawlwvb")
+# 'Hello world, meet me at noon!'
+
+secret = scramble("Meet me at noon!", key="tacos")
+# 'F agehe vbh!gx n'
+
+unscramble(secret, key="tacos")
+# 'Meet me at noon!'
+
+unscramble(secret, key="pizza")   # wrong key, still gibberish
+# 'Qwhi ei sw cgsf!'
+```
+
+### `scramble(text, key="kitchen")`
+
+Scrambles `text` and returns the result. The output is always the same length as the input, and the same text and key always give the same output.
+
+| Argument | Description |
+|---|---|
+| `text` | The message to scramble. |
+| `key` | Optional secret word. Only its letters are used, and it isn't case-sensitive, so `"Tacos!"` works the same as `"tacos"`. Defaults to `"kitchen"`. |
+
+### `unscramble(text, key="kitchen")`
+
+Turns text made by `scramble` back into the original message. Use the same `key` that was used to scramble it; a different key gives gibberish.
+
+| Argument | Description |
+|---|---|
+| `text` | The scrambled message. |
+| `key` | The key used to scramble the message. Defaults to `"kitchen"`. |
+
+### Errors
+
+Both functions raise:
+
+- `TypeError` if `text` or `key` isn't a string
+- `ValueError` if `key` has no letters, for example `""` or `"123"`
+
+### How it works
+
+Scrambling happens in two steps:
+
+1. **Shift the letters.** Each letter moves forward through the alphabet by the matching letter of the key (a = 0, b = 1, …, z = 25), repeating the key as needed. This is a [Vigenère cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher). Capital letters stay capital, and everything else is left as it is.
+2. **Rearrange every character.** Characters are written in a zigzag across 3 rows and read off row by row. This is a [rail fence cipher](https://en.wikipedia.org/wiki/Rail_fence_cipher), and it hides where the spaces and punctuation were.
+
+`unscramble` undoes the two steps in reverse order.
+
+### From the command line
+
+```bash
+pyjokelang scramble 'Meet me at noon!' --key tacos
+pyjokelang unscramble 'F agehe vbh!gx n' --key tacos
+```
+
+See [`examples/example.py`](./examples/example.py) for a complete program.
