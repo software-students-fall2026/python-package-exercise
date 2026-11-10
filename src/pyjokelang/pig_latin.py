@@ -41,9 +41,17 @@ def english_sentence_to_pig_latin(text):
         translated_words.append(english_word_to_pig_latin(word))
     return " ".join(translated_words)
 
-def reverse_capitalization():
+def reverse_capitalization(text):
     """This will turn all capital letters into lowercase and vice versa."""
-
+    reverse_capped_text = ""
+    for letter in text:
+        if letter.isupper():
+            reverse_capped_text += letter.lower()
+        elif letter.islower():
+            reverse_capped_text += letter.upper()
+        else:
+            reverse_capped_text += letter
+    return reverse_capped_text
 
 
 def reverse_punctuation():
